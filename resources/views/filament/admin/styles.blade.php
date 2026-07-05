@@ -252,25 +252,30 @@
         }
     }
 
+    /* IMPORTANTE: fill-mode `backwards` (no `both`): con `both` el transform queda
+       congelado como matriz identidad y rompe los modales position:fixed hijos
+       (quedan recortados dentro de la tabla). La tabla solo anima opacidad. */
     .fi-ta {
-        animation: fi-table-in 0.3s ease both;
+        animation: fi-table-fade 0.2s ease backwards;
     }
 
-    /* Entrada escalonada de filas */
+    @keyframes fi-table-fade {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Entrada escalonada de filas (ligera, para no frenar las interacciones) */
     .fi-ta-table .fi-ta-row {
-        animation: fi-row-in 0.35s ease both;
+        animation: fi-row-in 0.22s ease backwards;
     }
 
-    .fi-ta-table .fi-ta-row:nth-child(1) { animation-delay: 0.03s; }
-    .fi-ta-table .fi-ta-row:nth-child(2) { animation-delay: 0.06s; }
-    .fi-ta-table .fi-ta-row:nth-child(3) { animation-delay: 0.09s; }
-    .fi-ta-table .fi-ta-row:nth-child(4) { animation-delay: 0.12s; }
-    .fi-ta-table .fi-ta-row:nth-child(5) { animation-delay: 0.15s; }
-    .fi-ta-table .fi-ta-row:nth-child(6) { animation-delay: 0.18s; }
-    .fi-ta-table .fi-ta-row:nth-child(7) { animation-delay: 0.21s; }
-    .fi-ta-table .fi-ta-row:nth-child(8) { animation-delay: 0.24s; }
-    .fi-ta-table .fi-ta-row:nth-child(9) { animation-delay: 0.27s; }
-    .fi-ta-table .fi-ta-row:nth-child(n + 10) { animation-delay: 0.3s; }
+    .fi-ta-table .fi-ta-row:nth-child(1) { animation-delay: 0.015s; }
+    .fi-ta-table .fi-ta-row:nth-child(2) { animation-delay: 0.03s; }
+    .fi-ta-table .fi-ta-row:nth-child(3) { animation-delay: 0.045s; }
+    .fi-ta-table .fi-ta-row:nth-child(4) { animation-delay: 0.06s; }
+    .fi-ta-table .fi-ta-row:nth-child(5) { animation-delay: 0.075s; }
+    .fi-ta-table .fi-ta-row:nth-child(6) { animation-delay: 0.09s; }
+    .fi-ta-table .fi-ta-row:nth-child(n + 7) { animation-delay: 0.1s; }
 
     /* Hover de filas */
     .fi-ta-table .fi-ta-row {
@@ -319,7 +324,7 @@
     }
 
     .fi-dropdown-panel {
-        animation: fi-dropdown-in 0.18s ease both;
+        animation: fi-dropdown-in 0.18s ease backwards;
         transform-origin: top;
     }
 
@@ -342,8 +347,12 @@
         border-radius: 0.375rem;
     }
 
-    /* Transición al ocultar/mostrar columnas (la tabla se re-renderiza) */
-    .fi-ta-cell {
-        transition: opacity 0.2s ease;
+    /* ============ MODALES ============ */
+    /* Evitar que las etiquetas de los checkbox corten palabras */
+    .fi-modal .fi-checkbox-list-option-label,
+    .fi-modal label {
+        word-break: normal;
+        overflow-wrap: anywhere;
+        hyphens: none;
     }
 </style>

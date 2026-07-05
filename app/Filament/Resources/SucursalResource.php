@@ -11,6 +11,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TernaryFilter;
@@ -122,7 +123,10 @@ class SucursalResource extends Resource
             ])
             ->reorderableColumns()
             ->actions([
-                EditAction::make(),
+                ViewAction::make()
+                    ->modalWidth('3xl'),
+                EditAction::make()
+                    ->modalWidth('3xl'),
                 DeleteAction::make(),
             ]);
     }
@@ -131,8 +135,6 @@ class SucursalResource extends Resource
     {
         return [
             'index' => Pages\ListSucursales::route('/'),
-            'create' => Pages\CreateSucursal::route('/create'),
-            'edit' => Pages\EditSucursal::route('/{record}/edit'),
         ];
     }
 }

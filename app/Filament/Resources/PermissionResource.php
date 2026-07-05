@@ -8,6 +8,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Spatie\Permission\Models\Permission;
@@ -36,14 +37,20 @@ class PermissionResource extends Resource
 
     protected static ?int $navigationSort = 4;
 
+    protected static ?string $modelLabel = 'permiso';
+
+    protected static ?string $pluralModelLabel = 'Permisos';
+
     public static function form(Schema $form): Schema
     {
         return $form
             ->schema([
                 TextInput::make('name')
+                    ->label('Nombre')
                     ->required()
                     ->unique(ignoreRecord: true)
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -52,17 +59,23 @@ class PermissionResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label('Nombre')
                     ->searchable(),
                 TextColumn::make('guard_name')
+                    ->label('Guard')
                     ->badge()
                     ->toggleable(),
                 TextColumn::make('created_at')
+                    ->label('Creado')
                     ->dateTime()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->reorderableColumns()
             ->actions([
-                EditAction::make(),
+                ViewAction::make()
+                    ->modalWidth('lg'),
+                EditAction::make()
+                    ->modalWidth('lg'),
                 DeleteAction::make(),
             ]);
     }
@@ -71,8 +84,6 @@ class PermissionResource extends Resource
     {
         return [
             'index' => Pages\ListPermissions::route('/'),
-            'create' => Pages\CreatePermission::route('/create'),
-            'edit' => Pages\EditPermission::route('/{record}/edit'),
         ];
     }
 }
