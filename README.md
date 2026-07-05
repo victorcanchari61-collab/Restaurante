@@ -59,174 +59,27 @@ Cada sucursal opera de forma independiente en su operación diaria (POS, cocina,
 
 ## Módulos del Sistema
 
-### 1. Gestión de Restaurantes / Sucursales
-Registro y configuración de sucursales: nombre, dirección, teléfono, horarios, impuestos locales, estado (activo/inactivo) y parámetros propios de cada local.
-- **Configuración General** — Datos fiscales, moneda local y preferencias regionales
-- **Horarios** — Definición de turnos, días laborales y excepciones
-- **Ubicación** — Dirección, coordenadas, zonas de cobertura
-- **Multimedia** — Logotipo, fotos del local y galería
+| # | Módulo | Estado |
+|---|--------|--------|
+| 1 | Menú y Productos | 🚧 En desarrollo |
+| 2 | Punto de Venta (POS) | ⏳ Pendiente |
+| 3 | Gestión de Mesas | ⏳ Pendiente |
+| 4 | Cocina (KDS) | ⏳ Pendiente |
+| 5 | Caja | ⏳ Pendiente |
+| 6 | Pagos | ⏳ Pendiente |
+| 7 | Facturación | ⏳ Pendiente |
+| 8 | Inventario | ⏳ Pendiente |
+| 9 | Recetas | ⏳ Pendiente |
+| 10 | Compras | ⏳ Pendiente |
+| 11 | Clientes (CRM) | ⏳ Pendiente |
+| 12 | Proveedores | ⏳ Pendiente |
+| 13 | Delivery | ⏳ Pendiente |
+| 14 | Promociones | ⏳ Pendiente |
+| 15 | Reportes | ⏳ Pendiente |
+| 16 | Dashboard Gerencial | ⏳ Pendiente |
 
-### 2. Usuarios y Roles
-Administración de usuarios con roles y permisos granulares. Roles predefinidos: Super Admin, Admin, Cajero, Cocinero, Mesero. Cada usuario puede pertenecer a una o más sucursales.
-- **Usuarios** — CRUD completo, autenticación y perfil
-- **Roles** — Creación y edición de roles con permisos agrupados
-- **Permisos** — Permisos individuales granulares por acción y recurso
-- **Asignación por Sucursal** — Vinculación usuario-sucursal con rol específico
-
-### 3. Punto de Venta (POS)
-Creación de pedidos, cobro, división de cuentas, descuentos, propinas y facturación. Flujo rápido para atención en mostrador o mesa.
-- **Nuevo Pedido** — Selección rápida de productos, cantidades y notas
-- **Cobro** — Consolidación de cuenta y selección de método de pago
-- **División de Cuentas** — Reparto equitativo o personalizado entre comensales
-- **Descuentos y Propinas** — Aplicación de descuentos, propina sugerida o personalizada
-- **Cierre** — Facturación o ticket final con opciones de impresión
-
-### 4. Gestión de Mesas
-Plano interactivo del restaurante, control de ocupación, reservas, cambio de mesas y tiempo de estancia.
-- **Plano Interactivo** — Vista gráfica con arrastrar y soltar para asignación
-- **Ocupación** — Control de estado (libre, ocupada, reservada, sucia)
-- **Reservas** — Agenda de reservas con datos del cliente y hora
-- **Historial** — Tiempo de estancia, facturación acumulada y rotación
-
-### 5. Menú y Productos
-Categorías, platos, bebidas, combos, modificadores (ej. ingredientes extras), imágenes y precios diferenciados por sucursal.
-- **Categorías** — Agrupación jerárquica de productos del menú
-- **Productos** — CRUD con nombre, descripción, precio, imágenes y tipo
-- **Modificadores** — Opciones extras, ingredientes adicionales y personalización
-- **Precios por Sucursal** — Precios diferenciados y disponibilidad por local
-- **Combos** — Agrupación de productos con precio especial
-
-### 6. Inventario
-Control de ingredientes y materias primas, existencias mínimas y máximas, mermas, ajustes y movimientos de inventario.
-- **Ingredientes** — Catálogo de materias primas con unidad de medida
-- **Existencias** — Stock actual, mínimo, máximo y alertas de reabastecimiento
-- **Movimientos** — Entradas, salidas, mermas y ajustes con trazabilidad
-- **Transferencias** — Traslado de existencias entre sucursales
-
-### 7. Recetas
-Vinculación de ingredientes a cada producto del menú con cantidades exactas. Cálculo de costo unitario y descuento automático del inventario al registrar una venta.
-- **Composición** — Asignación de ingredientes con cantidades exactas por producto
-- **Costo Unitario** — Cálculo automático del costo de producción
-- **Descuento Automático** — Baja de inventario al confirmar pedidos
-- **Escalado** — Ajuste de cantidades para producción por lote
-
-### 8. Compras
-Órdenes de compra a proveedores, recepción de productos, control de precios y abastecimiento de inventario.
-- **Órdenes de Compra** — Creación, autorización y envío a proveedores
-- **Recepción** — Ingreso de productos y actualización automática de inventario
-- **Historial** — Precios históricos, tiempos de entrega y evaluación
-
-### 9. Proveedores
-Registro de proveedores, contactos, productos que suministran, historial de compras, pagos y evaluación.
-- **Registro** — Datos fiscales, contacto y clasificación
-- **Productos Suministrados** — Catálogo de insumos por proveedor
-- **Evaluación** — Calificación por cumplimiento, calidad y precio
-- **Pagos** — Cuentas por pagar y registro de transacciones
-
-### 10. Clientes (CRM)
-Historial de compras, acumulación y canje de puntos, promociones personalizadas, datos de contacto y preferencias.
-- **Perfil** — Datos de contacto, preferencias y segmentación
-- **Historial** — Compras realizadas, tickets y productos favoritos
-- **Puntos** — Acumulación, canje y niveles de fidelización
-- **Segmentación** — Grupos para campañas promocionales dirigidas
-
-### 11. Pedidos
-Gestión de pedidos en todas sus modalidades: consumo en mesa, para llevar, delivery y pedidos anticipados.
-- **Mesa** — Pedidos asociados a comensales con control de tiempos
-- **Para Llevar** — Pedidos empaquetados con tiempo de preparación
-- **Delivery** — Pedidos con dirección de entrega y repartidor asignado
-- **Anticipados** — Pedidos programados para fecha y hora futura
-
-### 12. Delivery
-Asignación de repartidores, seguimiento en tiempo real, zonas de entrega, tarifas dinámicas y cálculo de tiempo estimado.
-- **Repartidores** — Registro, disponibilidad y zona de cobertura
-- **Zonas** — Geocercas con tarifas y tiempos estimados por área
-- **Tarifas** — Costo dinámico por distancia, hora y demanda
-- **Seguimiento** — Mapa en tiempo real con estado del pedido
-
-### 13. Cocina (KDS — Kitchen Display System)
-Pantalla dedicada para cocina donde los pedidos entrantes se muestran en tiempo real. Los cocineros marcan platillos como "en preparación" y "listo".
-- **Pantalla de Pedidos** — Visualización en tiempo real de pedidos entrantes
-- **Estados** — Flujo: nuevo → en preparación → listo → entregado
-- **Tiempos** — Control de tiempo de preparación por platillo
-- **Notificaciones** — Alertas sonoras y visuales para pedidos urgentes
-
-### 14. Caja
-Apertura y cierre de caja, arqueos, retiros e ingresos de efectivo, control de fondo fijo por turno y sucursal.
-- **Apertura** — Registro de fondo inicial por turno y usuario
-- **Arqueo** — Conteo de efectivo y diferencia con el sistema
-- **Movimientos** — Retiros e ingresos durante el turno
-- **Cierre** — Corte de caja con resumen de transacciones y depósito
-
-### 15. Facturación
-Generación de facturas, boletas, notas de crédito y débito. Integración con autoridades tributarias (SAT/SUNAT/SII según el país).
-- **Facturas** — Emisión de comprobantes fiscales con datos del cliente
-- **Boletas** — Comprobante simplificado para consumidor final
-- **Notas de Crédito/Débito** — Anulación y corrección de comprobantes
-- **Tributación** — Integración con APIs de entidades fiscales
-
-### 16. Pagos
-Múltiples métodos de pago: efectivo, tarjeta (débito/crédito), transferencias, billeteras digitales y pagos mixtos (división de cuenta con distintos métodos).
-- **Efectivo** — Cobro en efectivo con cálculo de vuelto
-- **Tarjeta** — Integración con terminales POS y pasarelas de pago
-- **Transferencias** — Depósitos bancarios y transferencias electrónicas
-- **Billeteras Digitales** — Mercado Pago, PayPal, Yape, Plin, etc.
-- **Pago Mixto** — División de cuenta con combinación de métodos
-
-### 17. Promociones
-Descuentos por volumen, cupones, combos promocionales, happy hour, programas de fidelización y reglas configurables por sucursal.
-- **Cupones** — Códigos promocionales con condiciones y vigencia
-- **Combos Promocionales** — Paquetes con precio especial por tiempo limitado
-- **Happy Hour** — Descuentos programados en franja horaria
-- **Fidelización** — Programa de recompensas por frecuencia de consumo
-
-### 18. Reportes
-Reportes de ventas por período, utilidades por producto, productos más vendidos, movimientos de inventario, desempeño por sucursal y cierres de caja.
-- **Ventas** — Ingresos por período, sucursal y método de pago
-- **Productos** — Ranking de más vendidos, rentabilidad y rotación
-- **Inventario** — Movimientos, mermas y proyección de consumo
-- **Caja** — Corte por turno, diferencias y depósitos
-- **Comparativo** — Desempeño entre sucursales y períodos
-
-### 19. Dashboard Gerencial
-Indicadores clave en tiempo real: ventas del día, ocupación de mesas, pedidos en cocina, ticket promedio y comparativas entre sucursales.
-- **Resumen en Vivo** — Ventas, pedidos y ocupación actualizados al instante
-- **Comparativas** — KPI side-by-side entre sucursales
-- **Alertas** — Indicadores fuera de rango con notificaciones visuales
-- **Metas** — Progreso hacia objetivos diarios, semanales y mensuales
-
-### 20. Configuración General
-Parámetros globales del sistema: impuestos (IVA/IGV), moneda, formatos de impresión, configuración de impresoras térmicas, plantillas de tickets.
-- **Impuestos** — Tasas de IVA/IGV, retenciones y percepciones
-- **Moneda** — Moneda local, símbolo, formato y decimales
-- **Impresión** — Configuración de impresoras térmicas y formatos de ticket
-- **Plantillas** — Personalización de tickets, facturas y reportes
-
-### 21. Auditoría
-Registro detallado de todas las acciones realizadas por los usuarios: creación, modificación y eliminación de registros con fecha, usuario y datos anteriores.
-- **Traza** — Registro cronológico de acciones por usuario y modelo
-- **Detalle** — Antes/después de cada modificación con datos completos
-- **Exportación** — Descarga de logs por período y filtro
-- **Visualización** — Panel de consulta con búsqueda y filtros avanzados
-
-### 22. Notificaciones
-Alertas automáticas: inventario bajo, pedidos nuevos en cocina, compras por recibir, cierres de caja pendientes y vencimiento de productos.
-- **Alertas** — Notificaciones push, correo o pantalla según criticidad
-- **Canales** — Correo, notificación en app, pantalla KDS, SMS
-- **Suscripciones** — Configuración por usuario y tipo de evento
-- **Historial** — Registro de notificaciones enviadas con estado de lectura
-
-### Módulos Adicionales (Recomendados)
-
-- Reservas en línea (widget web)
-- Programa de fidelización (puntos y niveles)
-- Encuestas de satisfacción
-- Gestión de empleados y turnos
-- Control de asistencia (reloj checador)
-- Integración con plataformas de delivery (Uber Eats, Rappi, etc.)
-- Aplicación móvil para meseros (toma de pedidos)
-- App para clientes (pedidos, reservas, historial)
-- Business Intelligence (BI) con análisis predictivo
+> Documentación detallada (lógica, reglas, migraciones, APIs) en [`docs/modulos/`](docs/modulos/).  
+> Infraestructura transversal (Sucursales, Usuarios, Auth, etc.) en [`docs/infra/`](docs/infra/).
 
 ---
 
