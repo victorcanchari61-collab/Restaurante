@@ -287,4 +287,58 @@
         font-size: 0.7rem !important;
         letter-spacing: 0.05em;
     }
+
+    /* ============ TOOLBAR DE TABLA (filtros y gestor de columnas) ============ */
+    /* Iconos de embudo (filtros) y de columnas: resalte al pasar el mouse */
+    .fi-ta-header-toolbar .fi-icon-btn {
+        transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+        border-radius: 0.5rem;
+    }
+
+    .fi-ta-header-toolbar .fi-icon-btn:hover {
+        transform: scale(1.12);
+        background: rgba(14, 165, 233, 0.1);
+        color: #0284c7;
+    }
+
+    /* Entrada animada de los dropdowns (filtros, gestor de columnas, acciones) */
+    @keyframes fi-dropdown-in {
+        from {
+            opacity: 0;
+            transform: translateY(-6px) scale(0.97);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    .fi-dropdown-panel {
+        animation: fi-dropdown-in 0.18s ease both;
+        transform-origin: top;
+    }
+
+    /* Filas del gestor de columnas (mostrar/ocultar/arrastrar) */
+    .fi-ta-col-manager-dropdown label,
+    .fi-ta-col-manager-dropdown [x-sortable-item] {
+        border-radius: 0.375rem;
+        transition: background-color 0.15s ease;
+    }
+
+    .fi-ta-col-manager-dropdown label:hover,
+    .fi-ta-col-manager-dropdown [x-sortable-item]:hover {
+        background: rgba(14, 165, 233, 0.08);
+    }
+
+    /* Elemento arrastrándose en el reordenamiento de columnas */
+    .fi-sortable-ghost {
+        opacity: 0.4;
+        background: rgba(14, 165, 233, 0.15) !important;
+        border-radius: 0.375rem;
+    }
+
+    /* Transición al ocultar/mostrar columnas (la tabla se re-renderiza) */
+    .fi-ta-cell {
+        transition: opacity 0.2s ease;
+    }
 </style>

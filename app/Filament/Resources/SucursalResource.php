@@ -13,6 +13,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class SucursalResource extends Resource
@@ -84,24 +85,38 @@ class SucursalResource extends Resource
                 TextColumn::make('direccion')
                     ->label('Dirección')
                     ->searchable()
-                    ->limit(40),
+                    ->limit(40)
+                    ->toggleable(),
                 TextColumn::make('telefono')
-                    ->label('Teléfono'),
+                    ->label('Teléfono')
+                    ->toggleable(),
                 TextColumn::make('impuesto')
                     ->label('Impuesto')
                     ->suffix(' %')
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(),
                 IconColumn::make('activo')
                     ->label('Activo')
-                    ->boolean(),
+                    ->boolean()
+                    ->toggleable(),
                 TextColumn::make('users_count')
                     ->label('Usuarios')
-                    ->counts('users'),
+                    ->counts('users')
+                    ->toggleable(),
                 TextColumn::make('created_at')
                     ->label('Creado')
                     ->dateTime()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->filters([
+                TernaryFilter::make('activo')
+                    ->label('Estado')
+                    ->trueLabel('Solo activas')
+                    ->falseLabel('Solo inactivas')
+                    ->placeholder('Todas'),
+            ])
+            ->reorderableColumns()
             ->actions([
                 EditAction::make(),
                 DeleteAction::make(),

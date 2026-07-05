@@ -56,10 +56,13 @@ class RoleResource extends Resource
                 TextColumn::make('permissions.name')
                     ->badge()
                     ->separator(',')
-                    ->limit(5),
+                    ->limit(5)
+                    ->toggleable(),
                 TextColumn::make('created_at')
-                    ->dateTime(),
+                    ->dateTime()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->reorderableColumns()
             ->actions([
                 EditAction::make(),
                 DeleteAction::make(),

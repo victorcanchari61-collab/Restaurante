@@ -50,10 +50,13 @@ class PermissionResource extends Resource
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('guard_name')
-                    ->badge(),
+                    ->badge()
+                    ->toggleable(),
                 TextColumn::make('created_at')
-                    ->dateTime(),
+                    ->dateTime()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->reorderableColumns()
             ->actions([
                 EditAction::make(),
                 DeleteAction::make(),

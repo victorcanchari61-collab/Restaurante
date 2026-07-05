@@ -11,6 +11,7 @@ use Filament\Schemas\Schema;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Hash;
 
@@ -69,15 +70,32 @@ class UserResource extends Resource
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('username')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(),
                 TextColumn::make('email')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(),
                 TextColumn::make('roles.name')
                     ->badge()
-                    ->separator(','),
+                    ->separator(',')
+                    ->toggleable(),
+                TextColumn::make('sucursal.nombre')
+                    ->label('Sucursal')
+                    ->toggleable(),
                 TextColumn::make('created_at')
-                    ->dateTime(),
+                    ->dateTime()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->filters([
+                SelectFilter::make('roles')
+                    ->label('Rol')
+                    ->relationship('roles', 'name')
+                    ->multiple(),
+                SelectFilter::make('sucursal')
+                    ->label('Sucursal')
+                    ->relationship('sucursal', 'nombre'),
+            ])
+            ->reorderableColumns()
             ->actions([
                 EditAction::make(),
                 DeleteAction::make(),
