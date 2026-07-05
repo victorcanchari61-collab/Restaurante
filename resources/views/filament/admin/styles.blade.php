@@ -154,6 +154,11 @@
 
     .fi-sidebar .fi-sidebar-group-collapse-btn {
         color: #7dd3fc !important;
+        transition: transform 0.25s ease;
+    }
+
+    .fi-sidebar .fi-sidebar-group-btn:hover .fi-sidebar-group-label {
+        color: #f0f9ff !important;
     }
 
     /* Scrollbar del sidebar */
