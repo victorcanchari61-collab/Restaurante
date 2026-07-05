@@ -106,6 +106,7 @@
 
     .fi-sidebar .fi-sidebar-item-label {
         color: #cbd5e1 !important;
+        font-size: 0.78rem !important;
         transition: color 0.2s ease;
     }
 
